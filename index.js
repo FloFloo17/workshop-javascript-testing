@@ -13,7 +13,7 @@ let splitIdentik = (array) => {
   }
 
   return newArray;
-}
+};
 
 
 let getUnique = (array) => {
@@ -28,20 +28,20 @@ let getUnique = (array) => {
   }
 
   return newArray;
-}
+};
 
 let summarizeBasket = (prices, products) => {
 
   let price = 0;
 
-  let splittedProducts = splitIdentik(products)
+  let splittedProducts = splitIdentik(products);
 
   for (let j = 0; j < splittedProducts.length; j++) {
     let sameProducts = splittedProducts[j];
 
     let toSubstract = Math.floor(sameProducts.length / 3);
     let product = sameProducts[0];
-    let priceSameProduct = (sameProducts.length - toSubstract) * prices[product]
+    let priceSameProduct = (sameProducts.length - toSubstract) * prices[product];
     price += priceSameProduct;
   }
 
@@ -50,8 +50,8 @@ let summarizeBasket = (prices, products) => {
     price: price,
     countArticles: products.length,
     countProducts: getUnique(products).length
-  }
-}
+  };
+};
 
 module.exports = {
   summarizeBasket: summarizeBasket,
