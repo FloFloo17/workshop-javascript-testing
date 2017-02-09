@@ -1,5 +1,7 @@
 # workshop-javascript-testing
 
+HELLO !!!
+
 Workshop given with Ynov's students
 
 ## Install
