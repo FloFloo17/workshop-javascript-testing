@@ -54,8 +54,7 @@ let summarizeBasket = (prices, products) => {
 }
 
 let discount = (array) => {
-  let newArray = [];
-  return newArray;
+  return array.slice(0)
 }
 
 module.exports = {

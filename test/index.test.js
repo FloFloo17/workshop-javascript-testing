@@ -126,4 +126,13 @@ describe('function to return array with discount', function() {
     expect(result).to.be.empty;
   });
 
+  it('Array with one sub-array with one element should return same thing', function() {
+    var result = discount([
+      ['ploumm']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm']
+    ]);
+  });
+
 })
