@@ -135,4 +135,24 @@ describe('function to return array with discount', function() {
     ]);
   });
 
+  it('Array with one sub-array with 3 elements should return sub-array with 2 elements', function() {
+    var result = discount([
+      ['ploumm', 'ploumm', 'ploumm']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm', 'ploumm']
+    ]);
+  });
+
+  it('Array with 2 sub-array should return what we want', function() {
+    var result = discount([
+      ['ploumm', 'ploumm', 'ploumm', 'ploumm'],
+      ['pif', 'pif', 'pif', 'pif', 'pif', 'pif', 'pif', 'pif']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm', 'ploumm', 'ploumm'],
+      ['pif', 'pif', 'pif', 'pif', 'pif', 'pif']
+    ]);
+  });
+
 })

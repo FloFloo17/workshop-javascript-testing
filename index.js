@@ -55,6 +55,11 @@ let summarizeBasket = (prices, products) => {
 
 let discount = (array) => {
   return array.slice(0)
+    .map(subArray => {
+      return subArray.filter((item, index) => {
+        return (index + 1)%3 !== 0;
+      });
+    });
 }
 
 module.exports = {
