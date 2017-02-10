@@ -53,8 +53,14 @@ let summarizeBasket = (prices, products) => {
   }
 }
 
+let discount = (array) => {
+  let newArray = [];
+  return newArray;
+}
+
 module.exports = {
   summarizeBasket: summarizeBasket,
   getUnique: getUnique,
-  splitIdentik: splitIdentik
+  splitIdentik: splitIdentik,
+  discount: discount
 };

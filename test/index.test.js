@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var summarizeBasket = require ('../index').summarizeBasket;
 var getUnique = require ('../index').getUnique;
 var splitIdentik = require ('../index').splitIdentik;
+var discount = require ('../index').discount;
 
 let prices = {
   banana: 1,
@@ -117,3 +118,12 @@ describe('function to return array with arrays of same values', function() {
   });
 
 });
+
+describe('function to return array with discount', function() {
+
+  it('Empty array should return empty array', function() {
+    var result = discount([]);
+    expect(result).to.be.empty;
+  });
+
+})
