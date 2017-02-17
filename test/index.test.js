@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var summarizeBasket = require ('../index').summarizeBasket;
 var getUnique = require ('../index').getUnique;
 var splitIdentik = require ('../index').splitIdentik;
+var discount = require ('../index').discount;
 
 let prices = {
   banana: 1,
@@ -117,3 +118,41 @@ describe('function to return array with arrays of same values', function() {
   });
 
 });
+
+describe('function to return array with discount', function() {
+
+  it('Empty array should return empty array', function() {
+    var result = discount([]);
+    expect(result).to.be.empty;
+  });
+
+  it('Array with one sub-array with one element should return same thing', function() {
+    var result = discount([
+      ['ploumm']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm']
+    ]);
+  });
+
+  it('Array with one sub-array with 3 elements should return sub-array with 2 elements', function() {
+    var result = discount([
+      ['ploumm', 'ploumm', 'ploumm']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm', 'ploumm']
+    ]);
+  });
+
+  it('Array with 2 sub-array should return what we want', function() {
+    var result = discount([
+      ['ploumm', 'ploumm', 'ploumm', 'ploumm'],
+      ['pif', 'pif', 'pif', 'pif', 'pif', 'pif', 'pif', 'pif']
+    ]);
+    expect(result).to.be.eql([
+      ['ploumm', 'ploumm', 'ploumm'],
+      ['pif', 'pif', 'pif', 'pif', 'pif', 'pif']
+    ]);
+  });
+
+})
