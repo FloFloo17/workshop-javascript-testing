@@ -15,19 +15,13 @@ let splitIdentik = (array) => {
   return newArray;
 }
 
-
 let getUnique = (array) => {
-  let newArray = [];
-  let checker = {};
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if(!checker[item]) {
-      checker[item] = true;
-      newArray.push(item);
-    }
-  }
+  let checker = array.reduce((acc,item) => {
+    acc[item] = 1;
+    return acc;
+  },{});
 
-  return newArray;
+  return Object.keys(checker);
 }
 
 let summarizeBasket = (prices, products) => {
