@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node myStore.js",
     "test": "mocha test/index.test.js"
   },
   "author": "Alvin Berthelot",

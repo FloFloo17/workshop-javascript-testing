@@ -67,6 +67,7 @@ let discount = (array) => {
     });
 }
 
+
 module.exports = {
   summarizeBasket: summarizeBasket,
   getUnique: getUnique,
