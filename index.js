@@ -32,19 +32,17 @@ let getUnique = (array) => {
 
 let summarizeBasket = (prices, products) => {
 
-  let price = 0;
+  let productNumbers = products.map(item => {
+    return prices[item];
+  });
 
-  let splittedProducts = splitIdentik(products);
+  let basketWithDiscount = discount(splitIdentik(productNumbers));
 
-  for (let j = 0; j < splittedProducts.length; j++) {
-    let sameProducts = splittedProducts[j];
+  let arrayPrice = basketWithDiscount.map((subArray) => {
+    return sum(subArray);
+  })
 
-    let toSubstract = Math.floor(sameProducts.length / 3);
-    let product = sameProducts[0];
-    let priceSameProduct = (sameProducts.length - toSubstract) * prices[product];
-    price += priceSameProduct;
-  }
-
+  let price = sum(arrayPrice);
 
   return {
     price: price,
@@ -53,8 +51,25 @@ let summarizeBasket = (prices, products) => {
   };
 };
 
+let sum = (numbers) => {
+  return numbers.reduce((acc,number)=>{
+    return acc + number;
+  },0)
+}
+
+
+let discount = (array) => {
+  return array.slice(0)
+    .map(subArray => {
+      return subArray.filter((item, index) => {
+        return (index + 1)%3 !== 0;
+      });
+    });
+}
+
 module.exports = {
   summarizeBasket: summarizeBasket,
   getUnique: getUnique,
-  splitIdentik: splitIdentik
+  splitIdentik: splitIdentik,
+  discount: discount
 };
