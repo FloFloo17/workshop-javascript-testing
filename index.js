@@ -1,27 +1,27 @@
 
 let splitIdentik = (array) => {
-  let newArray = [];
-  let checker = {};
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if(!checker.hasOwnProperty(item)) {
-      checker[item] = newArray.length;
-      newArray.push([item]);
-    } else {
-      newArray[checker[item]].push(item);
-    }
-  }
 
-  return newArray;
-}
-
-let getUnique = (array) => {
-  let checker = array.reduce((acc,item) => {
-    acc[item] = 1;
+  let objWithArray = array.reduce((acc, product) => {
+    acc[product] ? acc[product].push(product) : acc[product] = [product];
     return acc;
   },{});
 
-  return Object.keys(checker);
+  let objToArr = Object.keys(objWithArray).map((item) => {
+    return objWithArray[item];
+  });
+
+
+  return objToArr;
+}
+
+let getUnique = (array) => {
+
+  let objWithArray = array.reduce((acc,item) => {
+    acc[item] = 1;
+    return acc;
+  }, {});
+
+  return Object.keys(objWithArray);
 }
 
 let summarizeBasket = (prices, products) => {

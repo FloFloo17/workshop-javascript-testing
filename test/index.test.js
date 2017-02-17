@@ -71,7 +71,7 @@ describe('summarizeBasket', function() {
 
 });
 
-describe.only('getUnique : function to return array with distinct values', function() {
+describe('getUnique : function to return array with distinct values', function() {
 
   it('Empty array should return empty array', function() {
     var result = getUnique([]);
@@ -95,7 +95,7 @@ describe.only('getUnique : function to return array with distinct values', funct
 
 });
 
-describe('function to return array with arrays of same values', function() {
+describe('splitIdentik : function to return array with arrays of same values', function() {
 
   it('Empty array should return empty array', function() {
     var result = splitIdentik([]);
