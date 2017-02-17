@@ -1,3 +1,4 @@
+var _ = require('lodash');
 
 let splitIdentik = (array) => {
 
@@ -15,13 +16,7 @@ let splitIdentik = (array) => {
 }
 
 let getUnique = (array) => {
-
-  let objWithArray = array.reduce((acc,item) => {
-    acc[item] = 1;
-    return acc;
-  }, {});
-
-  return Object.keys(objWithArray);
+  return _.uniq(array);
 }
 
 let summarizeBasket = (prices, products) => {
