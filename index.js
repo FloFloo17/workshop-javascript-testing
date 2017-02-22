@@ -1,18 +1,8 @@
 var _ = require('lodash');
-
-let splitIdentik = (array) => {
-
-  let objWithArray = array.reduce((acc, product) => {
-    acc[product] ? acc[product].push(product) : acc[product] = [product];
-    return acc;
-  },{});
-
-  let objToArr = Object.keys(objWithArray).map((item) => {
-    return objWithArray[item];
-  });
-
-
-  return objToArr;
+var array = ['tata','tet','tata'];
+let splitIdentik = function (array) {
+  var res = _.groupBy(array, x => x);
+  return _.values(res);
 }
 
 let getUnique = (array) => {
@@ -36,7 +26,7 @@ let summarizeBasket = (prices, products) => {
   return {
     price: price,
     countArticles: products.length,
-    countProducts: getUnique(products).length
+    countProducts:  (products).length
   }
 }
 

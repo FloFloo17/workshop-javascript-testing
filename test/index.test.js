@@ -95,7 +95,7 @@ describe('getUnique : function to return array with distinct values', function()
 
 });
 
-describe('splitIdentik : function to return array with arrays of same values', function() {
+describe.only('splitIdentik : function to return array with arrays of same values', function() {
 
   it('Empty array should return empty array', function() {
     var result = splitIdentik([]);
@@ -113,8 +113,8 @@ describe('splitIdentik : function to return array with arrays of same values', f
   });
 
   it('Array with 3 items with 2 same values should return array with 2 arrays inside', function() {
-    var result = splitIdentik(['tata', 'tete', 'tata']);
-    expect(result).to.be.eql([['tata', 'tata'], ['tete']]);
+    var result = splitIdentik(['tata', 'tet', 'tata']);
+    expect(result).to.be.eql([['tata', 'tata'], ['tet']]);
   });
 
 });
