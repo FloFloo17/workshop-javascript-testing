@@ -71,7 +71,7 @@ describe('summarizeBasket', function() {
 
 });
 
-describe('function to return array with distinct values', function() {
+describe('getUnique : function to return array with distinct values', function() {
 
   it('Empty array should return empty array', function() {
     var result = getUnique([]);
@@ -95,7 +95,7 @@ describe('function to return array with distinct values', function() {
 
 });
 
-describe('function to return array with arrays of same values', function() {
+describe.only('splitIdentik : function to return array with arrays of same values', function() {
 
   it('Empty array should return empty array', function() {
     var result = splitIdentik([]);
@@ -113,8 +113,8 @@ describe('function to return array with arrays of same values', function() {
   });
 
   it('Array with 3 items with 2 same values should return array with 2 arrays inside', function() {
-    var result = splitIdentik(['tata', 'tete', 'tata']);
-    expect(result).to.be.eql([['tata', 'tata'], ['tete']]);
+    var result = splitIdentik(['tata', 'tet', 'tata']);
+    expect(result).to.be.eql([['tata', 'tata'], ['tet']]);
   });
 
 });

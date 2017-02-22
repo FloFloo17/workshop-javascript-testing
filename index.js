@@ -1,33 +1,12 @@
-
-let splitIdentik = (array) => {
-  let newArray = [];
-  let checker = {};
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if(!checker.hasOwnProperty(item)) {
-      checker[item] = newArray.length;
-      newArray.push([item]);
-    } else {
-      newArray[checker[item]].push(item);
-    }
-  }
-
-  return newArray;
+var _ = require('lodash');
+var array = ['tata','tet','tata'];
+let splitIdentik = function (array) {
+  var res = _.groupBy(array, x => x);
+  return _.values(res);
 }
 
-
 let getUnique = (array) => {
-  let newArray = [];
-  let checker = {};
-  for (let i = 0; i < array.length; i++) {
-    let item = array[i];
-    if(!checker[item]) {
-      checker[item] = true;
-      newArray.push(item);
-    }
-  }
-
-  return newArray;
+  return _.uniq(array);
 }
 
 let summarizeBasket = (prices, products) => {
@@ -47,7 +26,7 @@ let summarizeBasket = (prices, products) => {
   return {
     price: price,
     countArticles: products.length,
-    countProducts: getUnique(products).length
+    countProducts:  (products).length
   }
 }
 
@@ -66,6 +45,7 @@ let discount = (array) => {
       });
     });
 }
+
 
 module.exports = {
   summarizeBasket: summarizeBasket,
